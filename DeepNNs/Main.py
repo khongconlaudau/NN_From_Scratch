@@ -1,3 +1,4 @@
+import math
 from symbol import parameters
 
 import copy
@@ -230,11 +231,11 @@ def L_model_backward(AL, Y, caches):
     Y = Y.reshape(AL.shape) # make sure prediction and y label have the same shape
 
     # Initializing the backpropagation
-    dAL = - (np.divide(Y, Al) - np.divide(1 - Y, 1 - AL))
+    dAL = - (np.divide(Y, AL) - np.divide(1 - Y, 1 - AL))
 
     # Last Layer
     current_cache =  caches[L - 1]
-    dA_prev, dW, db = linear_activation_backward(dAl, current_cache, activation="sigmoid")
+    dA_prev, dW, db = linear_activation_backward(dAL, current_cache, activation="sigmoid")
     grads["dA" + str(L - 1)] = dA_prev
     grads["dW" + str(L)] = dW
     grads["db" + str(L)] = db
@@ -271,6 +272,4 @@ def update_parameters(parameters, grads, learning_rate):
         params["b" + str(l + 1)] = params["b" + str(l + 1)] - learning_rate * grads["db" + str(l + 1)]
 
     return params
-
-
 
