@@ -122,4 +122,3 @@ def initial_parameters_he(layers_dims):
         params['b' + str(l)] = np.zeros((layers_dims[l], 1))
     return params
 
-np.multi
