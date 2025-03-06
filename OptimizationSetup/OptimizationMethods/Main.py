@@ -325,3 +325,4 @@ Adam	94%
 """
 
 
+print(-4 * np.random.rand(4))

@@ -206,7 +206,7 @@ def model(X, Y, learning_rate= 0.3, num_iterations= 30000, print_cost=True, lamb
     for i in range(num_iterations):
         # Forward propagation: LINEAR -> RELU -> LINEAR -> RELU -> LINEAR -> SIGMOID.
         if keep_prob == 1:
-            a3, cache = foward_propagation(X, parameters)
+            a3, cache = forward_propagation(X, parameters)
         elif keep_prob < 1:
             a3, cache = foward_propagation_with_dropout(X, parameters, keep_prob)
 
